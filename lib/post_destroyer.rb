@@ -275,9 +275,11 @@ class PostDestroyer
             "js.post.deleted_by_author_simple"
           end
         )
+      changes = { raw: I18n.t(key) }
+      changes[:form_data] = nil if @post.form_data
       @post.revise(
         @user,
-        { raw: I18n.t(key) },
+        changes,
         force_new_version: true,
         deleting_post: true,
         skip_validations: true,
@@ -303,7 +305,9 @@ class PostDestroyer
     # has internal transactions, if we nest then there are some very high risk deadlocks
     last_revision = @post.revisions.last
     if last_revision.present? && last_revision.modifications["raw"].present?
-      @post.revise(@user, { raw: last_revision.modifications["raw"][0] }, force_new_version: true)
+      changes = { raw: last_revision.modifications["raw"][0] }
+      changes[:form_data] = last_revision.form_data_changes[0] if last_revision.form_data_changes
+      @post.revise(@user, changes, force_new_version: true)
     end
 
     restore_reviewables_for_author_recovery if @user.id == @post.user_id
