@@ -260,6 +260,8 @@ end
 #  index_directory_items_on_days_visited             (days_visited)
 #  index_directory_items_on_likes_given              (likes_given)
 #  index_directory_items_on_likes_received           (likes_received)
+#  index_directory_items_on_period_solutions_asc     (period_type,solutions,id)
+#  index_directory_items_on_period_solutions_desc    (period_type,solutions DESC,id)
 #  index_directory_items_on_period_type_and_user_id  (period_type,user_id) UNIQUE
 #  index_directory_items_on_post_count               (post_count)
 #  index_directory_items_on_posts_read               (posts_read)

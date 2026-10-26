@@ -21975,6 +21975,20 @@ CREATE INDEX index_directory_items_on_likes_received ON public.directory_items U
 
 
 --
+-- Name: index_directory_items_on_period_solutions_asc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_directory_items_on_period_solutions_asc ON public.directory_items USING btree (period_type, solutions, id);
+
+
+--
+-- Name: index_directory_items_on_period_solutions_desc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_directory_items_on_period_solutions_desc ON public.directory_items USING btree (period_type, solutions DESC, id);
+
+
+--
 -- Name: index_directory_items_on_period_type_and_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -26164,6 +26178,7 @@ ALTER TABLE ONLY public.ad_plugin_house_ads_groups
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20261026223314'),
 ('20261021063131'),
 ('20261021063122'),
 ('20261021060627'),
