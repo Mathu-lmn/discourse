@@ -22,7 +22,6 @@ hy:
       description_placeholder: "Մուտքագրեք նկարագրություն այստեղ"
       ai:
         generate: "Գեներացնել"
-        optional: "ընտրովի"
       help:
         label: "Օգնություն"
       schema:
@@ -39,6 +38,7 @@ hy:
       result_count:
         one: "%{count} արդյունք"
         other: "%{count} արդյունք"
+      name: "Անուն"
       query_name: "Հարցում"
       query_groups: "Խմբեր"
       query_tags: "Պիտակներ"

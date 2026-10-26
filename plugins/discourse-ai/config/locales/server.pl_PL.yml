@@ -19,6 +19,7 @@ pl_PL:
         other: "<a href='%{base_path}/admin/plugins/discourse-ai/ai-llms/%{target}/edit'>%{model_name}</a> wymaga uwagi. W ciągu ostatnich %{count} godzin nie odpowiedział w %{failed_calls} na %{total_calls}."
       ai_credit_soft_limit: "%{model_name} ma tylko %{percentage_remaining}% pozostałych kredytów. Kredyty zostaną zresetowane o %{reset_date}. <a href='%{url}'>Zobacz modele AI</a>"
       ai_credit_hard_limit: "Skończyły Ci się kredyty AI na %{model_name}. Funkcje AI będą niedostępne do %{reset_date}. <a href='%{url}'>Zobacz modele AI</a>"
+      ai_ask_ai_external_source: "Zapytaj AI pominęło swoje zewnętrzne źródło <a href='%{base_path}/admin/plugins/discourse-ai/ai-tools/%{target}/edit'>%{tool_name}</a> w %{skipped} podczas ostatnich %{searches} wyszukiwań w ciągu ostatnich %{hours} godzin: %{timed_out} zajęło więcej czasu niż oczekiwanie na źródło zewnętrzne, %{failed} nie powiodło się, a %{busy} zostały pominięte, bo zbyt wiele wyszukiwań wciąż czekało na źródła zewnętrzne."
       ai_image_caption_agent: "Podpisy AI do obrazów są włączone, ale wybrany agent podpisów do obrazów nie jest gotowy: %{reason}. <a href='%{url}'>Przejrzyj agenta podpisów do obrazów</a>."
       ai_image_caption_agent_reasons:
         agent_missing: "wybrany agent nie istnieje"
@@ -174,6 +175,12 @@ pl_PL:
     ai_ask_ai_agent: "Agent wybierający źródła i piszący odpowiedzi Zapytaj AI."
     ai_ask_ai_query_rewriter_agent: "Agent używany do przygotowywania oddzielnych zapytań dotyczących słów kluczowych i semantyki dla Zapytaj AI. Jeśli ten agent lub jego model są niedostępne, Zapytaj AI wyszukuje według oryginalnego zapytania użytkownika."
     ai_ask_ai_follow_up_agent: "Agent używany, gdy użytkownik chce śledzić wynik Zapytaj AI. Wybrany agent musi być włączony, zezwalać na wiadomości prywatne i być dostępny dla użytkownika."
+    ai_ask_ai_keyword_search_enabled: "Przeszukaj forum według słów kluczowych, aby znaleźć odpowiedzi na pytanie Zapytaj AI."
+    ai_ask_ai_semantic_search_enabled: "Przeszukaj forum semantycznie, aby znaleźć odpowiedzi na pytanie Zapytaj AI. Wymaga osadzenia."
+    ai_ask_ai_search_categories: "Przeszukuj tylko te kategorie i ich podkategorie, aby znaleźć odpowiedzi na pytania Zapytaj AI. Wiadomości osobiste nadal będą przeszukiwane, gdy o nie zapytasz. Pozostaw puste, aby przeszukać wszystkie kategorie."
+    ai_ask_ai_search_max_age_days: "Szukaj odpowiedzi na Zapytaj AI tylko we wpisach utworzonych w ciągu tej liczby dni. Ustaw 0, aby wyszukiwać posty z dowolnego wieku."
+    ai_ask_ai_external_sources: "Niestandardowe narzędzia Zapytaj AI przeszukują forum równolegle z nim. Każde z nich jest wywoływane wraz z zapytaniem użytkownika i musi zwrócić listę wyników, każdy z tytułem, adresem URL http(s) oraz opcjonalnie opisem, treścią i adresem published_at. Zapytania są wysyłane do wszystkich usług, do których wywołują te narzędzia."
+    ai_ask_ai_external_sources_timeout: "Sekundy, gdy Zapytaj AI czeka na wszystkie zewnętrzne źródła, przeszukane jednocześnie, zanim odpowie, nie uruchamiając tych, które są już aktywne. Wlicza się to do 20 sekund, które może zająć zapytanie Zapytaj AI, więc dłuższe oczekiwanie pozostawia mniej czasu na napisanie odpowiedzi."
     ai_ask_ai_allowed_groups: "Grupy mogą korzystać z Zapytaj AI i funkcji przekazywania kolejnych wiadomości. Uprawnienia agenta Zapytaj AI, agenta przekazującego kolejne wiadomości oraz standardowe tematy, kategorie i widoczność wiadomości osobistych nadal obowiązują. Semantyczne wyszukiwanie wiadomości osobistych wymaga wartości {{setting:ai_embeddings_generate_for_pms}}. Treści widoczne dla uprawnionego użytkownika, w tym tematy zastrzeżone i wiadomości osobiste, mogą być wysyłane do skonfigurowanego dostawcy LLM."
     ai_google_custom_search_api_key: "Klucz dla Google Custom Search API, zobacz: https://developers.google.com/custom-search"
     ai_google_custom_search_cx: "CX dla Google Custom Search API"
@@ -449,6 +456,9 @@ pl_PL:
         llm_missing: "Agent podpisów obrazów AI musi używać LLM."
         llm_vision_disabled: "Agent podpisujący obrazy za pomocą sztucznej inteligencji musi używać LLM z obsługą obrazu."
     ask_ai:
+      external_sources:
+        invalid_output: "Źródła Zapytaj AI muszą zwrócić listę wyników."
+        invalid_result: "Wynik %{position} wymaga tytułu i adresu URL http(s)."
       configuration:
         agent_missing: "Wybierz istniejącego agenta, aby wykonać dalsze czynności w ramach usługi Zapytaj AI."
         agent_disabled: "Agent Zapytaj AI musi być włączony."

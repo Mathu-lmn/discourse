@@ -65,6 +65,7 @@ lt:
       manage:
         access_permission_editor: "Redaguotojas"
         access_permission_editor_description: "Gali kurti ir redaguoti šio objekto turinį"
+        access_permission_owner: "Savininkas"
         access_permission_viewer: "Žiūrovas"
         access_permission_viewer_description: "Gali peržiūrėti šio objekto turinį"
         access_permission_remove: "Pašalinti"

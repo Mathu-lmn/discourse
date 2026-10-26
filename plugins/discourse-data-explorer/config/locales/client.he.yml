@@ -27,7 +27,6 @@ he:
       description_placeholder: "יש להקליד תיאור כאן"
       ai:
         generate: "ייצר"
-        optional: "רשות"
       import:
         unparseable_json: "קובץ JSON שאינו ניתן לפענוח."
         wrong_json: "קובץ JSON שגוי. קובץ JSON צריך להכיל רכיב ‚query’, שצריך לכלול לפחות מאפיין ‚sql’."
@@ -63,6 +62,7 @@ he:
         one: "התוצאה המובילה מופיעה."
         two: "שתי התוצאות המובילות מופיעות."
         other: "%{count} התוצאות המובילות מופיעות."
+      name: "שם"
       query_name: "שאילתה"
       query_groups: "קבוצות"
       query_tags: "תגיות"
